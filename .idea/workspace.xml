@@ -32,10 +32,46 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/gd12773-hlw/Documents/GitHub/autotest_ui_bilibili/autotest_ui_bilibili/TestDatas",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+    "last_opened_file_path": "C:/Users/gd12773-hlw/Documents/GitHub/autotest_ui_bilibili/autotest_ui_bilibili/PageLocators",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PythonContentEntriesConfigurable"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\gd12773-hlw\Documents\GitHub\autotest_ui_bilibili\autotest_ui_bilibili\PageLocators" />
+      <recent name="C:\Users\gd12773-hlw\Documents\GitHub\autotest_ui_bilibili\autotest_ui_bilibili\TestDatas" />
+      <recent name="C:\Users\gd12773-hlw\Documents\GitHub\autotest_ui_bilibili\autotest_ui_bilibili\Outputs\screenshots" />
+      <recent name="C:\Users\gd12773-hlw\Documents\GitHub\autotest_ui_bilibili\autotest_ui_bilibili\Outputs\reports" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="chromedriver_try" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="autotest_ui_bilibili" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/autotest_ui_bilibili" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/autotest_ui_bilibili/chromedriver_try.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.chromedriver_try" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">

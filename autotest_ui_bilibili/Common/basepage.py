@@ -30,3 +30,50 @@ class BasePage:
     #         duration = end_time - start_time
     #         logger.logging.info("等待{}元素可见,耗时{}".format(loc, duration))
 
+    def ele_click(self):
+        pass
+
+    def ele_send_keys(self):
+        pass
+
+    def ele_clear(self):
+        pass
+
+    def ele_get_text(self):
+        pass
+
+    def ele_get_attribute(self):
+        pass
+
+    def do_save_screenshot(self):
+        pass
+
+    def do_get_title(self):
+        pass
+
+    def do_get_url(self):
+        pass
+
+    def do_get_window_size(self):
+        pass
+
+    def do_get_window_handles(self):
+        pass
+
+    def do_get_window_position(self):
+        pass
+
+    def do_get_window_maximize(self):
+        pass
+
+    def do_get_window_minimize(self):
+        pass
+
+    def do_get_alert_text(self):
+        pass
+
+    def do_get_alert(self):
+        pass
+
+    def do_get_alert_accept(self):
+        pass
