@@ -1,7 +1,7 @@
 import configparser
 import os
 import sys
-from Congig.conf import cm
+from Config.conf import cm
 
 sys.path.append((os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))))
 
