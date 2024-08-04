@@ -10,36 +10,45 @@ class BasePage:
         self.wait = WebDriverWait(self.driver, self.timeout)
 
     # 等待元素可见
-    # def wait_elevisible(self, loc, timeout=120, frequency=0.5, doc=""):
-    #     """
-    #     :param loc:
-    #     :param timeout:
-    #     :param frequency:
-    #     :param doc:
-    #     :return:
-    #     """
-    #     start_time = time.time()
-    #     try:
-    #         WebDriverWait(self.driver, timeout, frequency).until(EC.visibility_of_element_located(loc))
-    #     except Exception as e:
-    #         logger.logging.exception("等待{}元素可见超时".format(loc))
-    #         self.do_save_screenshot(doc)
-    #         raise
-    #     else:
-    #         end_time = time.time()
-    #         duration = end_time - start_time
-    #         logger.logging.info("等待{}元素可见,耗时{}".format(loc, duration))
+    def wait_elevisible(self, loc, timeout=120, frequency=0.5, doc=""):
+        """
+        :param loc:
+        :param timeout:
+        :param frequency:
+        :param doc:
+        :return:
+        """
+        start_time = time.time()
+        try:
+            WebDriverWait(self.driver, timeout, frequency).until(EC.visibility_of_element_located(loc))
+        except Exception as e:
+            # logger.logging.exception("等待{}元素可见超时".format(loc))
+            self.do_save_screenshot(doc)
+            raise
+        else:
+            end_time = time.time()
+            duration = end_time - start_time
+            # logger.logging.info("等待{}元素可见,耗时{}".format(loc, duration))
 
-    def ele_click(self):
-        pass
+    def get_element(self, locator):
+        ele = self.driver.find_element(*locator)
 
-    def ele_send_keys(self):
-        pass
+    # 等待元素出现并点击
+    def wait_click_ele(self, locator):
+        ele = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located(locator))
+        ele.click()
+
+    def ele_send_keys(self, locator):
+        ele = self.driver.find_element(*locator)
+        ele.send_keys()
+
+    def ele_get_text(self, locator):
+        ele = self.driver.find_element(*locator)
+        text = ele.text
+        return text
 
     def ele_clear(self):
-        pass
-
-    def ele_get_text(self):
         pass
 
     def ele_get_attribute(self):

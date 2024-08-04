@@ -21,7 +21,7 @@ def access_web():
     driver.quit()
 
     @pytest.fixture
-    def refresh(access_web):
+    def refresh_web(access_web):
         yield access_web
         # 刷新页面
         access_web.refresh()
