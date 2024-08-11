@@ -37,9 +37,8 @@ class BilibiliLoginPage(BasePage, ReadLoginYaml):
         self.ele_send_keys(bpl.password_input, phone_password)
         self.wait_click_ele(bpl.confirmLogin_button)
 
-    @staticmethod
-    def b64_api(username, password, img_path, ID):
-        with open(img_path, 'rb', encoding='utf-8') as f:
+    def b64_api(self, username, password, img_path, ID):
+        with open(img_path, 'rb') as f:
             b64_data = base64.b64encode(f.read())
         b64 = b64_data.decode()
         data = {"username": username, "password": password, "ID": ID, "b64": b64, "version": "3.1.1"}
