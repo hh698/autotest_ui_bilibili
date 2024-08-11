@@ -1,3 +1,4 @@
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
@@ -30,18 +31,23 @@ class BasePage:
             duration = end_time - start_time
             # logger.logging.info("等待{}元素可见,耗时{}".format(loc, duration))
 
-    def get_element(self, locator):
-        ele = self.driver.find_element(*locator)
+    # 找到元素
+    # def get_element(self, locator):
+    #     ele = self.driver.find_element(*locator)
 
     # 等待元素出现并点击
     def wait_click_ele(self, locator):
-        ele = WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located(locator))
-        ele.click()
+        try:
+            ele = WebDriverWait(self.driver, 10).until(
+                EC.presence_of_element_located(locator))
+            ele.click()
+        except TimeoutException:
+            raise TimeoutException("元素未找到")
 
-    def ele_send_keys(self, locator):
+    def ele_send_keys(self, locator, value):
         ele = self.driver.find_element(*locator)
-        ele.send_keys()
+        time.sleep(0.5)
+        ele.send_keys(value)
 
     def ele_get_text(self, locator):
         ele = self.driver.find_element(*locator)

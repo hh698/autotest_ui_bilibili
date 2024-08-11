@@ -17,5 +17,5 @@ class TestChannel:
         """
         b站登录模块正向测试
         """
-        result_text = bp(refresh_web).login()
+        result_text = bp(refresh_web).webstar()
         assert result_text != "登录"
