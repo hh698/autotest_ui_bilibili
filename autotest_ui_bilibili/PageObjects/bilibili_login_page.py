@@ -46,9 +46,10 @@ class BilibiliLoginPage(BasePage, ReadLoginYaml):
         result = json.loads(requests.post("http://www.fdyscloud.com.cn/tuling/predict", data=data_json).text)
         return result
 
-    def pass_touclick(self):
-        driver.implicitly_wait(10)
-        driver.get_screenshot_as_file('browser.png')
+    def pass_touclick(self, username, password, img_path, ID):
+        # self.driver.implicitly_wait(10)   #这里没生效的原因下周看下视频
+        time.sleep(3)
+        self.driver.get_screenshot_as_file('browser.png')
         img = Image.open('browser.png')
         width = img.size[0]
         height = img.size[1]
@@ -61,8 +62,8 @@ class BilibiliLoginPage(BasePage, ReadLoginYaml):
         cropped_image.save(image_name)
         # 调用图灵识别API完成验证码识别
         img_path = image_name
-        result_json = self.b64_api(username="1277490394", password="1277490394", img_path=img_path, ID="08272733")
-        # result_json = self.b64_api(username=username, password=password, img_path=img_path, ID=ID)
+        # result_json = b64_api(username="1277490394", password="1277490394", img_path=img_path, ID="08272733")
+        result_json = self.b64_api(username=username, password=password, img_path=img_path, ID=ID)
         # 此处id为模型id
         print(result_json)
         result_data = result_json['data']
@@ -89,5 +90,7 @@ class BilibiliLoginPage(BasePage, ReadLoginYaml):
 if __name__ == '__main__':
     bilibili_login_page = BilibiliLoginPage(driver)  # 实例化类
     bilibili_login_page.webstar()
-    bilibili_login_page.pass_touclick()
+    bilibili_login_page.pass_touclick(username="1277490394", password="1277490394", img_path='image.png', ID="08272733")
     bilibili_login_page.click_confirm_button()
+# 下周研究下取出调试之后的代码
+# 返回值断言
