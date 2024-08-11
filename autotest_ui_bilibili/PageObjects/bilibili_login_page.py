@@ -1,3 +1,6 @@
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
 from Common.basepage import BasePage
 from PageLocators.bilibili_login_page_locator import BilibiliLoginPageLocator as bpl
 from PageObjects.read_loginyaml import ReadLoginYaml
@@ -47,8 +50,11 @@ class BilibiliLoginPage(BasePage, ReadLoginYaml):
         return result
 
     def pass_touclick(self, username, password, img_path, ID):
-        # self.driver.implicitly_wait(10)   #这里没生效的原因下周看下视频
-        time.sleep(3)
+        # self.driver.implicitly_wait(10)
+        time.sleep(2)
+        # wait = WebDriverWait(self.driver, 10)
+        # wait.until(EC.presence_of_all_elements_located)
+
         self.driver.get_screenshot_as_file('browser.png')
         img = Image.open('browser.png')
         width = img.size[0]
