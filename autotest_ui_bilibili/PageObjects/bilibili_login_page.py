@@ -1,3 +1,4 @@
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -51,11 +52,16 @@ class BilibiliLoginPage(BasePage, ReadLoginYaml):
 
     def pass_touclick(self, username, password, img_path, ID):
         # self.driver.implicitly_wait(10)
-        time.sleep(2)
-        # wait = WebDriverWait(self.driver, 10)
-        # wait.until(EC.presence_of_all_elements_located)
+        # time.sleep(2)
+        try:
+            WebDriverWait(self.driver, 10, poll_frequency=0.5).until(
+                EC.element_to_be_clickable(bpl.confirmCode_button)
+            )
+            self.driver.get_screenshot_as_file('browser.png')
+        except TimeoutException:
+            print("Element not found within the timeout period.")
+            self.driver.get_screenshot_as_file('browser_error.png')
 
-        self.driver.get_screenshot_as_file('browser.png')
         img = Image.open('browser.png')
         width = img.size[0]
         height = img.size[1]
