@@ -5,6 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from Common.basepage import BasePage
 from PageLocators.bilibili_login_page_locator import BilibiliLoginPageLocator as bpl
 from PageObjects.read_loginyaml import ReadLoginYaml
+from TestCase.conftest import refresh_web
 
 from PIL import Image
 from selenium import webdriver
@@ -98,11 +99,17 @@ class BilibiliLoginPage(BasePage, ReadLoginYaml):
     def click_confirm_button(self):
         self.wait_click_ele(bpl.confirmCode_button)
 
+    def login_process(self):
+        self.webstar()
+        self.pass_touclick(username="1277490394", password="1277490394", img_path='image.png',
+                           ID="08272733")
+        self.click_confirm_button()
+        page_tile = self.driver.title
+        return page_tile
+
 
 if __name__ == '__main__':
     bilibili_login_page = BilibiliLoginPage(driver)  # 实例化类
     bilibili_login_page.webstar()
     bilibili_login_page.pass_touclick(username="1277490394", password="1277490394", img_path='image.png', ID="08272733")
     bilibili_login_page.click_confirm_button()
-# 下周研究下取出调试之后的代码
-# 返回值断言

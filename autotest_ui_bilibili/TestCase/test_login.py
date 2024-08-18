@@ -19,9 +19,5 @@ class TestChannel(bp):
         """
         # result_text = bp(refresh_web).webstar()
         # assert result_text != "登录"
-        bp(refresh_web).webstar()
-        bp(refresh_web).pass_touclick(username="1277490394", password="1277490394", img_path='image.png',
-                                          ID="08272733")
-        bp(refresh_web).click_confirm_button()
-
-        assert bp(refresh_web).do_get_title() != "登录"
+        page_title = bp(refresh_web).login_process()
+        assert page_title == "登录验证"

@@ -20,9 +20,10 @@ def access_web():
     # 后置：关闭浏览器
     driver.quit()
 
-    @pytest.fixture
-    def refresh_web(access_web):
-        yield access_web
-        # 刷新页面
-        access_web.refresh()
-        time.sleep(1)
+
+@pytest.fixture
+def refresh_web(access_web):
+    yield access_web
+    # 刷新页面
+    access_web.refresh()
+    time.sleep(1)
