@@ -5,7 +5,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from Common.basepage import BasePage
 from PageLocators.bilibili_login_page_locator import BilibiliLoginPageLocator as bpl
 from PageObjects.read_loginyaml import ReadLoginYaml
-from TestCase.conftest import refresh_web
 
 from PIL import Image
 from selenium import webdriver
