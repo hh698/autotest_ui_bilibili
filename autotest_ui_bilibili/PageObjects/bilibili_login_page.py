@@ -3,7 +3,6 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 from Common.basepage import BasePage
-from PageLocators.bilibili_login_page_locator import BilibiliLoginPageLocator as bpl
 from PageObjects.read_loginyaml import ReadLoginYaml
 
 from PIL import Image
@@ -13,6 +12,7 @@ from selenium.webdriver import ActionChains  # 鼠标悬停动作链
 import base64
 import json
 import requests
+
 
 # class BilibiliLoginPage(BasePage):
 #     def login(self):
@@ -25,21 +25,23 @@ import requests
 #         text_search = self.ele_get_text(bpl.login_button)
 #         return text_search
 
-driver = webdriver.Chrome()
-driver.get("https://passport.bilibili.com/login")
-driver.maximize_window()
-driver.implicitly_wait(10)
+
+# driver.maximize_window()
+# driver.implicitly_wait(10)
 
 
 class BilibiliLoginPage(BasePage, ReadLoginYaml):
+    def __init__(self, driver):
+        super().__init__(driver)
+
     def webstar(self):
         # self.wait_click_ele(bpl.login_button)
 
         phone_number = self.get_phone_number()
-        self.ele_send_keys(bpl.username_input, phone_number)
+        self.ele_send_keys(self.username_input, phone_number)
         phone_password = self.get_phone_password()
-        self.ele_send_keys(bpl.password_input, phone_password)
-        self.wait_click_ele(bpl.confirmLogin_button)
+        self.ele_send_keys(self.password_input, phone_password)
+        self.wait_click_ele(self.confirmLogin_button)
 
     def b64_api(self, username, password, img_path, ID):
         with open(img_path, 'rb') as f:
@@ -55,7 +57,7 @@ class BilibiliLoginPage(BasePage, ReadLoginYaml):
         # time.sleep(2)
         try:
             WebDriverWait(self.driver, 10, poll_frequency=0.5).until(
-                EC.element_to_be_clickable(bpl.confirmCode_button)
+                EC.element_to_be_clickable(self.confirmCode_button)
             )
             self.driver.get_screenshot_as_file('browser.png')
         except TimeoutException:
@@ -87,8 +89,8 @@ class BilibiliLoginPage(BasePage, ReadLoginYaml):
                 x_coord = int((int(result_order['X坐标值']) + 790))
                 y_coord = int((int(result_order['Y坐标值']) + 260))
                 print(x_coord, y_coord)
-                ActionChains(driver).move_by_offset(x_coord, y_coord).click().perform()
-                ActionChains(driver).move_by_offset(-x_coord, -y_coord).perform()
+                ActionChains(self.driver).move_by_offset(x_coord, y_coord).click().perform()
+                ActionChains(self.driver).move_by_offset(-x_coord, -y_coord).perform()
                 time.sleep(2)
         except Exception as e:
             print(e)
@@ -96,19 +98,22 @@ class BilibiliLoginPage(BasePage, ReadLoginYaml):
         # 点击完成验证码识别
 
     def click_confirm_button(self):
-        self.wait_click_ele(bpl.confirmCode_button)
+        self.wait_click_ele(self.confirmCode_button)
 
     def login_process(self):
         self.webstar()
         self.pass_touclick(username="1277490394", password="1277490394", img_path='image.png',
                            ID="08272733")
         self.click_confirm_button()
+        time.sleep(5)
         page_tile = self.driver.title
+        print(page_tile)
         return page_tile
 
 
 if __name__ == '__main__':
-    bilibili_login_page = BilibiliLoginPage(driver)  # 实例化类
-    bilibili_login_page.webstar()
-    bilibili_login_page.pass_touclick(username="1277490394", password="1277490394", img_path='image.png', ID="08272733")
-    bilibili_login_page.click_confirm_button()
+    bilibili_login_page = BilibiliLoginPage()  # 实例化类
+    # bilibili_login_page.webstar()
+    # bilibili_login_page.pass_touclick(username="1277490394", password="1277490394", img_path='image.png', ID="08272733")
+    # bilibili_login_page.click_confirm_button()
+    bilibili_login_page.login_process()

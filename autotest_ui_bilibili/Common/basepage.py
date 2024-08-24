@@ -3,12 +3,14 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
+from PageLocators.bilibili_login_page_locator import BilibiliLoginPageLocator
 
-class BasePage:
+
+class BasePage(BilibiliLoginPageLocator):
     def __init__(self, driver):
         self.driver = driver
-        self.timeout = 20
-        self.wait = WebDriverWait(self.driver, self.timeout)
+    #     self.timeout = 20
+    #     self.wait = WebDriverWait(self.driver, self.timeout)
 
     # 等待元素可见
     def wait_elevisible(self, loc, timeout=120, frequency=0.5, doc=""):
