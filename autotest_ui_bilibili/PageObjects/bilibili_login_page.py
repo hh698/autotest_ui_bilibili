@@ -3,6 +3,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 from Common.basepage import BasePage
+from Common.globaldriver import global_driver
 from PageObjects.read_loginyaml import ReadLoginYaml
 
 from PIL import Image
@@ -31,8 +32,21 @@ import requests
 
 
 class BilibiliLoginPage(BasePage, ReadLoginYaml):
+    """"
+    这里的实例没有直接用global_driver的driver，是因为：
+    不是通过pytest的fixture提供的
+    为了确保BilibiliLoginPage中的所有方法都使用由refresh_web fixture提供的已经刷新过的driver实例，需要确保BilibiliLoginPage的driver属性始终引用同一个driver实例。
+    可以通过将driver作为构造函数参数传递来实现，并且在构造函数内部不再使用global_driver.get_driver()。
+    因此，在test_login.py中，创建BilibiliLoginPage实例时，传入的是refresh_web fixture提供的driver（溯源来看，实际上还是access_web中通过global_driver创建的driver实例）
+    这样BilibiliLoginPage中的所有方法都将使用这个刷新过的driver实例
+
+    BilibiliLoginPage中的driver就是refresh_web fixture提供的已经刷新过的driver实例
+    """
+
+    # def __init__(self):
+    #     self.driver = global_driver.get_driver()
     def __init__(self, driver):
-        super().__init__(driver)
+        self.driver = driver
 
     def webstar(self):
         # self.wait_click_ele(bpl.login_button)
