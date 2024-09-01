@@ -1,5 +1,8 @@
 import yaml
 
+# file_path = '../PageLocators/login.yaml'
+file_path = 'F:\\GitHub\\autotest_ui_bilibili\\autotest_ui_bilibili\\PageLocators\\login.yaml'
+
 
 class ReadLoginYaml:
     def __init__(self):
@@ -34,7 +37,6 @@ class ReadLoginYaml:
         return self.phone_password
 
 
-file_path = '../PageLocators/login.yaml'
 if __name__ == '__main__':
     # # 获取当前文件的目录路径
     # current_dir = os.path.dirname(__file__)

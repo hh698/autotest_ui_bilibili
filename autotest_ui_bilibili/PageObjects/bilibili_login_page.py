@@ -47,13 +47,18 @@ class BilibiliLoginPage(BasePage, ReadLoginYaml):
     #     self.driver = global_driver.get_driver()
     def __init__(self, driver):
         self.driver = driver
+        self.reader = ReadLoginYaml()  # 创建 ReadLoginYaml 的实例
+        # self.reader.read_yaml('../PageLocators/login.yaml')  # 读取 YAML 文件
+        # self.reader.read_yaml('F:\\GitHub\\autotest_ui_bilibili\\autotest_ui_bilibili\\PageLocators\\login.yaml')
 
     def webstar(self):
         # self.wait_click_ele(bpl.login_button)
 
-        phone_number = self.get_phone_number()
+        phone_number = self.reader.get_phone_number()
+        print(phone_number)
         self.ele_send_keys(self.username_input, phone_number)
-        phone_password = self.get_phone_password()
+        phone_password = self.reader.get_phone_password()
+        print(phone_password)
         self.ele_send_keys(self.password_input, phone_password)
         self.wait_click_ele(self.confirmLogin_button)
 
