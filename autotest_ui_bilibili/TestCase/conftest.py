@@ -54,7 +54,7 @@ def access_web():
     # driver.quit()
 
 
-@pytest.fixture
+@pytest.fixture(scope="function")
 def refresh_web(access_web):
     yield access_web
     # 刷新页面
