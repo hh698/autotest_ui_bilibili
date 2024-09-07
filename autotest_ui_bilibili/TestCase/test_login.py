@@ -12,6 +12,7 @@ root = os.path.dirname(os.path.abspath(__file__))
 class TestChannel:
 
     @pytest.mark.smoke
+    @allure.severity(severity_level="[normal]")
     @allure.story("正向登录测试")
     def test_bilibili_login(self, refresh_web):
         """
