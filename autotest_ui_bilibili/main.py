@@ -75,7 +75,7 @@ if __name__ == '__main__':
     """
     allure_open_command = "allure open -h 127.0.0.1 -p 8883 Outputs/reports/allure_reports/html"
     start_allure_open_in_thread(allure_open_command)
-    print("allure被一个单独的进程打开")
-    print("继续执行其他任务...")
+    # print("allure被一个单独的进程打开")
+    # print("继续执行其他任务...")
 
     print("allure open finished")

@@ -24,8 +24,8 @@ class TestChannel:
             bp = BilibiliLoginPage(refresh_web)  # 传递refresh_web得到的driver
             page_title = bp.login_process()
         with allure.step("步骤2：断言"):
-            # assert page_title == "登录验证"
-            assert page_title == "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili"
+            assert page_title == "登录验证"
+            # assert page_title == "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili"
 
 
 # if __name__ == '__main__':

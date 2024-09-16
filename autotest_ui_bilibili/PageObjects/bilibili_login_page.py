@@ -1,3 +1,5 @@
+import os
+
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -74,24 +76,34 @@ class BilibiliLoginPage(BasePage, ReadLoginYaml):
     def pass_touclick(self, username, password, img_path, ID):
         # self.driver.implicitly_wait(10)
         # time.sleep(2)
+
         try:
             WebDriverWait(self.driver, 10, poll_frequency=0.5).until(
                 EC.element_to_be_clickable(self.confirmCode_button)
             )
-            self.driver.get_screenshot_as_file('browser.png')
+            self.driver.get_screenshot_as_file(
+                r'F:\GitHub\autotest_ui_bilibili\autotest_ui_bilibili\Outputs\reports\code_pic\browser.png')
+            # self.driver.get_screenshot_as_file(
+            #     'browser.png')
         except TimeoutException:
             print("Element not found within the timeout period.")
-            self.driver.get_screenshot_as_file('browser_error.png')
+            self.driver.get_screenshot_as_file(
+                r'F:\GitHub\autotest_ui_bilibili\autotest_ui_bilibili\Outputs\reports\code_pic\browser_error.png')
+            # self.driver.get_screenshot_as_file(
+            #     'browser_error.png')
 
-        img = Image.open('browser.png')
+        img = Image.open(r'F:\GitHub\autotest_ui_bilibili\autotest_ui_bilibili\Outputs\reports\code_pic\browser.png')
+        # img = Image.open('browser.png')
         width = img.size[0]
         height = img.size[1]
         # 此处求横向与纵向的拉伸率
         # width_stretch_rate = 1200 / int(width)
         # height_stretch_rate = 1000 / int(height)
         # cropped_image = img.crop((862, 470, 1473, 1171))
-        cropped_image = img.crop((790, 263, 1114, 680))  # 左、上、右、下
-        image_name = 'image.png'
+        # 如果显示器的分辨率变了，此处的坐标也需要更改
+        cropped_image = img.crop((1067, 374, 1473, 895))  # 左、上、右、下
+        image_name = r'F:\GitHub\autotest_ui_bilibili\autotest_ui_bilibili\Outputs\reports\code_pic\image.png'
+        # image_name = 'image.png'
         cropped_image.save(image_name)
         # 调用图灵识别API完成验证码识别
         img_path = image_name
@@ -105,8 +117,8 @@ class BilibiliLoginPage(BasePage, ReadLoginYaml):
             for i in range(len(result_data)):
                 result_order = result_data[f'顺序{i + 1}']
                 print(result_order['X坐标值'], result_order['Y坐标值'])
-                x_coord = int((int(result_order['X坐标值']) + 790))
-                y_coord = int((int(result_order['Y坐标值']) + 260))
+                x_coord = int((int(result_order['X坐标值']) + 814))
+                y_coord = int((int(result_order['Y坐标值']) + 235))
                 print(x_coord, y_coord)
                 ActionChains(self.driver).move_by_offset(x_coord, y_coord).click().perform()
                 ActionChains(self.driver).move_by_offset(-x_coord, -y_coord).perform()
@@ -121,8 +133,12 @@ class BilibiliLoginPage(BasePage, ReadLoginYaml):
 
     def login_process(self):
         self.webstar()
-        self.pass_touclick(username="1277490394", password="1277490394", img_path='image.png',
+        self.pass_touclick(username="1277490394", password="1277490394",
+                           img_path=r'F:\GitHub\autotest_ui_bilibili\autotest_ui_bilibili\Outputs\reports\code_pic\image.png',
                            ID="08272733")
+        # self.pass_touclick(username="1277490394", password="1277490394",
+        #                    img_path='image.png',
+        #                    ID="08272733")
         self.click_confirm_button()
         time.sleep(5)
         page_tile = self.driver.title
