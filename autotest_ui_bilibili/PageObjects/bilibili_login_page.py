@@ -77,9 +77,16 @@ class BilibiliLoginPage(BasePage, ReadLoginYaml):
         # self.driver.implicitly_wait(10)
         # time.sleep(2)
 
+        """
+        这里用元素可点击来抓取验证码截图，之前想的是要等验证码的框完全出来后再截图，所以用了元素可点击。隔了个把月之后再看这里，感觉有点不对，
+        账号密码的确认按钮点击之后弹框的验证码确认按钮是置灰状态，为什么还能成功截图，顺序捋了又捋，想不明白
+        把EC.element_to_be_clickable换成EC.visibility_of_element_located也能实现截图，且更合理
+        为什么EC.presence_of_element_located无法截图，因为这个方法是检查元素是否再dom页面中，并不一定可见，并且验证码弹框加载有延时，往往确认按钮没有加载出来就会截图
+        """
+
         try:
             WebDriverWait(self.driver, 10, poll_frequency=0.5).until(
-                EC.element_to_be_clickable(self.confirmCode_button)
+                EC.visibility_of_element_located(self.confirmCode_button)
             )
             self.driver.get_screenshot_as_file(
                 r'F:\GitHub\autotest_ui_bilibili\autotest_ui_bilibili\Outputs\reports\code_pic\browser.png')
