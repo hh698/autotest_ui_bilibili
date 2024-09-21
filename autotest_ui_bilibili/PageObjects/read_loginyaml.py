@@ -36,6 +36,54 @@ class ReadLoginYaml:
         """获取账号密码"""
         return self.phone_password
 
+    def get_phone_number_2(self):
+        # 读取YAML配置文件
+        self.read_yaml(file_path)
+        # 从配置文件中获取账号
+        self.phone_number = self.config.get('phone_number_2', '') if self.config else ''
+        """获取账号"""
+        return self.phone_number
+
+    def get_phone_password_2(self):
+        # 读取YAML配置文件
+        self.read_yaml(file_path)
+        # 从配置文件中获取密码
+        self.phone_password = self.config.get('phone_password_2', '') if self.config else ''
+        """获取账号密码"""
+        return self.phone_password
+
+    def get_phone_number_3(self):
+        # 读取YAML配置文件
+        self.read_yaml(file_path)
+        # 从配置文件中获取账号
+        self.phone_number = self.config.get('phone_number_3', '') if self.config else ''
+        """获取账号"""
+        return self.phone_number
+
+    def get_phone_password_3(self):
+        # 读取YAML配置文件
+        self.read_yaml(file_path)
+        # 从配置文件中获取密码
+        self.phone_password = self.config.get('phone_password_3', '') if self.config else ''
+        """获取账号密码"""
+        return self.phone_password
+
+    def get_phone_number_4(self):
+        # 读取YAML配置文件
+        self.read_yaml(file_path)
+        # 从配置文件中获取账号
+        self.phone_number = self.config.get('phone_number_4', '') if self.config else ''
+        """获取账号"""
+        return self.phone_number
+
+    def get_phone_password_4(self):
+        # 读取YAML配置文件
+        self.read_yaml(file_path)
+        # 从配置文件中获取密码
+        self.phone_password = self.config.get('phone_password_4', '') if self.config else ''
+        """获取账号密码"""
+        return self.phone_password
+
 
 if __name__ == '__main__':
     # # 获取当前文件的目录路径

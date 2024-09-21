@@ -1,4 +1,4 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Sat Sep 21 17:20:05 CST 2024","Sat Sep 21 17:20:22 CST 2024","16429","TestCase","test_login","TestChannel","","","test_bilibili_login","
+"passed","Sat Sep 21 18:44:30 CST 2024","Sat Sep 21 18:44:46 CST 2024","16306","TestCase","test_login","TestChannel","","","test_bilibili_login","
         b站登录模块正向测试
         "

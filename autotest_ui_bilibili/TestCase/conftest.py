@@ -60,6 +60,7 @@ def refresh_web(access_web):
     # 刷新页面
     access_web.refresh()
     time.sleep(1)
+    global_driver.close_driver()
 
 
 def pytest_configure(config):

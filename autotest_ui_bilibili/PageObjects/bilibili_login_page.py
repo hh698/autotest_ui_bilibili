@@ -16,6 +16,8 @@ import base64
 import json
 import requests
 
+from TestCase.conftest import refresh_web
+
 
 # class BilibiliLoginPage(BasePage):
 #     def login(self):
@@ -48,21 +50,22 @@ class BilibiliLoginPage(BasePage, ReadLoginYaml):
     # def __init__(self):
     #     self.driver = global_driver.get_driver()
     def __init__(self, driver):
-        self.driver = driver
-        self.reader = ReadLoginYaml()  # 创建 ReadLoginYaml 的实例
-        # self.reader.read_yaml('../PageLocators/login.yaml')  # 读取 YAML 文件
-        # self.reader.read_yaml('F:\\GitHub\\autotest_ui_bilibili\\autotest_ui_bilibili\\PageLocators\\login.yaml')
+        self.driver = driver  # 此处的driver的作用是用来接收access_web返回的driver
+        # self.reader = ReadLoginYaml()  # 创建 ReadLoginYaml 的实例
 
-    def webstar(self):
-        # self.wait_click_ele(bpl.login_button)
+    # self.reader.read_yaml('../PageLocators/login.yaml')  # 读取 YAML 文件
+    # self.reader.read_yaml('F:\\GitHub\\autotest_ui_bilibili\\autotest_ui_bilibili\\PageLocators\\login.yaml')
 
-        phone_number = self.reader.get_phone_number()
-        print(phone_number)
-        self.ele_send_keys(self.username_input, phone_number)
-        phone_password = self.reader.get_phone_password()
-        print(phone_password)
-        self.ele_send_keys(self.password_input, phone_password)
-        self.wait_click_ele(self.confirmLogin_button)
+    # def webstar(self):
+    #     # self.wait_click_ele(bpl.login_button)
+    #
+    #     phone_number = self.reader.get_phone_number()
+    #     print(phone_number)
+    #     self.ele_send_keys(self.username_input, phone_number)
+    #     phone_password = self.reader.get_phone_password()
+    #     print(phone_password)
+    #     self.ele_send_keys(self.password_input, phone_password)
+    #     self.wait_click_ele(self.confirmLogin_button)
 
     def b64_api(self, username, password, img_path, ID):
         with open(img_path, 'rb') as f:
@@ -138,8 +141,15 @@ class BilibiliLoginPage(BasePage, ReadLoginYaml):
     def click_confirm_button(self):
         self.wait_click_ele(self.confirmCode_button)
 
-    def login_process(self):
-        self.webstar()
+    def login_process(self, phone_number, phone_password):
+        # phone_number = self.reader.get_phone_number()
+        # print(phone_number)
+        self.ele_send_keys(self.username_input, phone_number)
+        # phone_password = self.reader.get_phone_password()
+        # print(phone_password)
+        self.ele_send_keys(self.password_input, phone_password)
+        self.wait_click_ele(self.confirmLogin_button)
+
         self.pass_touclick(username="1277490394", password="1277490394",
                            img_path=r'F:\GitHub\autotest_ui_bilibili\autotest_ui_bilibili\Outputs\reports\code_pic\image.png',
                            ID="08272733")
