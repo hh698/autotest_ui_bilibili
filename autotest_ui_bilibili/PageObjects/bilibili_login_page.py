@@ -111,7 +111,8 @@ class BilibiliLoginPage(BasePage, ReadLoginYaml):
         # height_stretch_rate = 1000 / int(height)
         # cropped_image = img.crop((862, 470, 1473, 1171))
         # 如果显示器的分辨率变了，此处的坐标也需要更改
-        cropped_image = img.crop((1067, 374, 1473, 895))  # 左、上、右、下
+        # cropped_image = img.crop((1067, 374, 1473, 892))  # 左、上、右、下 125%缩放
+        cropped_image = img.crop((1117, 442, 1443, 858))  # 左、上、右、下 100%缩放
         image_name = r'F:\GitHub\autotest_ui_bilibili\autotest_ui_bilibili\Outputs\reports\code_pic\image.png'
         # image_name = 'image.png'
         cropped_image.save(image_name)
@@ -127,8 +128,12 @@ class BilibiliLoginPage(BasePage, ReadLoginYaml):
             for i in range(len(result_data)):
                 result_order = result_data[f'顺序{i + 1}']
                 print(result_order['X坐标值'], result_order['Y坐标值'])
-                x_coord = int((int(result_order['X坐标值']) + 814))
-                y_coord = int((int(result_order['Y坐标值']) + 235))
+                # 125%缩放
+                # x_coord = int((int(result_order['X坐标值']) + (1067/1.25-15)))  # 814
+                # y_coord = int((int(result_order['Y坐标值']) + (374/1.25-20)))  # 235
+                # 100%缩放，用以下的坐标可以精准定位
+                x_coord = int((int(result_order['X坐标值']) + 1117))
+                y_coord = int((int(result_order['Y坐标值']) + 442))
                 print(x_coord, y_coord)
                 ActionChains(self.driver).move_by_offset(x_coord, y_coord).click().perform()
                 ActionChains(self.driver).move_by_offset(-x_coord, -y_coord).perform()
@@ -169,3 +174,23 @@ if __name__ == '__main__':
     # bilibili_login_page.pass_touclick(username="1277490394", password="1277490394", img_path='image.png', ID="08272733")
     # bilibili_login_page.click_confirm_button()
     bilibili_login_page.login_process()
+
+"""
+绝对路径改相对路径：
+import os
+
+# 绝对路径
+absolute_path = r"F:\GitHub\autotest_ui_bilibili\autotest_ui_bilibili\Outputs\reports\code_pic\browser.png"
+
+# 当前工作目录
+current_working_directory = r"F:\GitHub\autotest_ui_bilibili\autotest_ui_bilibili"
+
+# 转换为相对路径
+relative_path = os.path.relpath(absolute_path, current_working_directory)
+
+print(relative_path)
+
+
+输出的相对路径为：
+Outputs\reports\code_pic\browser.png
+"""
