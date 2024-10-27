@@ -51,6 +51,15 @@ def access_web():
     # 返回对象
     yield driver
     # 后置：关闭浏览器
+    # driver.quit(
+    global_driver.quit_driver()
+
+    # chrome_options = Options()
+    # chrome_options.add_argument("--start-maximized")
+    # # chrome_options.add_experimental_option("detach", True)
+    # driver = webdriver.Chrome(options=chrome_options, service=Service())
+    # driver.get("https://passport.bilibili.com/login")
+    # yield driver
     # driver.quit()
 
 
@@ -60,7 +69,7 @@ def refresh_web(access_web):
     # 刷新页面
     access_web.refresh()
     time.sleep(1)
-    global_driver.close_driver()
+    # global_driver.close_driver()
 
 
 def pytest_configure(config):

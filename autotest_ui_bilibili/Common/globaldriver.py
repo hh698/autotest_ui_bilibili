@@ -13,8 +13,8 @@ class GlobalDriver:
             chrome_options = Options()
             chrome_options.add_argument("--start-maximized")
 
-            # 实现浏览器在用例执行完成之后不会关闭
-            chrome_options.add_experimental_option("detach", True)
+            # 实现浏览器在用例执行完成之后不会关闭    True:不关闭，False:关闭
+            chrome_options.add_experimental_option("detach", False)
             self.driver = webdriver.Chrome(options=chrome_options, service=Service())
 
             # 修改页面加载策略
@@ -24,7 +24,7 @@ class GlobalDriver:
 
         return self.driver
 
-    def close_driver(self):
+    def quit_driver(self):
         if self.driver is not None:
             self.driver.quit()
             self.driver = None
