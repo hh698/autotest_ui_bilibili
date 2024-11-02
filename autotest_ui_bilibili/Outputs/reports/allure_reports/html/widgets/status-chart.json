@@ -1,1 +1,1 @@
-[{"uid":"c117bbdefe5a343f","name":"test_bilibili_login","time":{"start":1726915470337,"stop":1726915486643,"duration":16306},"status":"passed","severity":"normal"}]
+[{"uid":"6d51bb7ddd1f4da9","name":"test_bilibili_login1","time":{"start":1730541012841,"stop":1730541026843,"duration":14002},"status":"passed","severity":"normal"},{"uid":"b15274701e4de281","name":"test_bilibili_login2","time":{"start":1730541035713,"stop":1730541049919,"duration":14206},"status":"passed","severity":"normal"}]
