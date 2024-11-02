@@ -93,7 +93,7 @@ if __name__ == '__main__':
 
     file_path = '../PageLocators/login.yaml'
     read = ReadLoginYaml()  # 实例化YourClass，并传入YAML文件路径
-    phone_number = read.get_phone_number_2()
-    phone_password = read.get_phone_password_2()
+    phone_number = read.get_phone_number()
+    phone_password = read.get_phone_password()
     print(phone_number)
     print(phone_password)
