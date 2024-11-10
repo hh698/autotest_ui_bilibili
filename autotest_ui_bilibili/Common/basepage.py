@@ -65,8 +65,9 @@ class BasePage(BilibiliLoginPageLocator):
     def ele_get_attribute(self):
         pass
 
-    def do_save_screenshot(self):
-        pass
+    def take_screenshot(self, file_name):
+        self.driver.save_screenshot(file_name)
+        print(f"Screenshot saved as {file_name}")
 
     def do_get_title(self):
         pass

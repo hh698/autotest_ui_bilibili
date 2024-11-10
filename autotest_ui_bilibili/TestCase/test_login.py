@@ -3,7 +3,7 @@ import time
 import allure
 import os
 import pytest
-
+from Common.basepage import BasePage as BP
 from PageObjects.bilibili_login_page import BilibiliLoginPage
 from PageObjects.read_loginyaml import ReadLoginYaml
 
@@ -24,7 +24,9 @@ class TestChannel:
             bp = BilibiliLoginPage(access_web)  # 传递refresh_web得到的driver
             page_title = bp.login_process(phone_number, phone_password)
         with allure.step("步骤2：断言"):
+            # BP.take_screenshot(access_web, "login_page.png")
             assert page_title == "登录验证"
+
             # assert page_title == "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili"
 
     @pytest.mark.P0

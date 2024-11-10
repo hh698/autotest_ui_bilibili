@@ -58,7 +58,8 @@ def access_web():
     yield driver
     # 后置：关闭浏览器
     # driver.quit()
-    # global_driver.quit_driver()
+    # global_driver.quit_driver()   # 一个用例打开一个浏览器窗口
+    pass    # 如果要实现在一个浏览器窗口下执行多条用例，需要在yield下添加内容，如果是空的，pytest会自动关闭浏览器对象，后面的操作无法进行
 
 
 @pytest.fixture(scope="function")
