@@ -58,7 +58,7 @@ def access_web():
     yield driver
     # 后置：关闭浏览器
     # driver.quit()
-    global_driver.quit_driver()
+    # global_driver.quit_driver()
 
 
 @pytest.fixture(scope="function")
