@@ -53,7 +53,7 @@ def run_tests():
 
         thread = threading.Thread(target=target)
         thread.start()
-    allure_open_command = "allure open -h 127.0.0.1 -p 8883 Outputs/reports/allure_reports/html"
+    allure_open_command = "allure open -h 127.0.0.1 -p 8882 Outputs/reports/allure_reports/html"
     run_command_in_thread(allure_open_command)
     print("Allure报告已打开！")
     # 没有加入tomcat进行监听，无法正确打开，目前只能用subprocess.run
