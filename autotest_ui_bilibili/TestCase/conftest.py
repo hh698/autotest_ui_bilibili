@@ -21,7 +21,7 @@ from Common.globaldriver import global_driver
 """
 
 
-@pytest.fixture(scope="function")
+@pytest.fixture(scope="class")
 def access_web():
     # # 创建 chrome_options 对象
     # chrome_options = Options()
@@ -48,17 +48,10 @@ def access_web():
     driver.get("https://passport.bilibili.com/login")
     # driver.implicitly_wait(10)
 
-    # chrome_options = Options()
-    # chrome_options.add_argument("--start-maximized")
-    # # chrome_options.add_experimental_option("detach", True)
-    # driver = webdriver.Chrome(options=chrome_options, service=Service())
-    # driver.get("https://passport.bilibili.com/login")
-
     # 返回对象
     yield driver
     # 后置：关闭浏览器
     # driver.quit()
-    global_driver.quit_driver()
 
 
 @pytest.fixture(scope="function")
