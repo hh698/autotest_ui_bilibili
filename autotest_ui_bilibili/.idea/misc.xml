@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="Black">
+    <option name="sdkUUID" value="165f1601-12bf-4605-8083-24af3552ae00" />
+  </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.10 (autotest_ui_bilibili)" project-jdk-type="Python SDK" />
 </project>

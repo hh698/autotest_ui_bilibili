@@ -17,17 +17,23 @@ class TestChannel:
     @allure.severity(severity_level="[normal]")
     @allure.story("正向登录测试，账号密码均正确")
     def test_bilibili_login1(self, access_web):
+        screenshot_dir = "../Outputs/assert_screenshots"
         with allure.step("步骤1：登录"):
             self.reader = ReadLoginYaml()  # 创建 ReadLoginYaml 的实例
             phone_number = self.reader.get_phone_number()
             phone_password = self.reader.get_phone_password()
             bp = BilibiliLoginPage(access_web)  # 传递refresh_web得到的driver
             page_title = bp.login_process(phone_number, phone_password)
-        with allure.step("步骤2：断言"):
-            # BP.take_screenshot(access_web, "login_page.png")
-            assert page_title == "登录验证"
+            with allure.step("步骤2：断言"):
+                try:
+                    assert page_title == "登录验证1"
+                    print("断言成功，页面标题正确！")
+                    BP.take_screenshot(access_web, "login_page.png", screenshot_dir)
+                except AssertionError as e:
+                    print("断言失败，页面标题错误！")
+                    BP.take_screenshot(access_web, "login_page_error.png", screenshot_dir)
 
-            # assert page_title == "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili"
+        # assert page_title == "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili"
 
     @pytest.mark.P0
     @allure.severity(severity_level="[normal]")

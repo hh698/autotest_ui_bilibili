@@ -1,3 +1,5 @@
+import os
+
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -65,9 +67,15 @@ class BasePage(BilibiliLoginPageLocator):
     def ele_get_attribute(self):
         pass
 
-    def take_screenshot(self, file_name):
-        self.driver.save_screenshot(file_name)
-        print(f"Screenshot saved as {file_name}")
+    @staticmethod
+    def take_screenshot(driver, file_name, save_dir):
+        if not os.path.exists(save_dir):
+            os.makedirs(save_dir)
+
+        full_file_path = os.path.join(save_dir, file_name)
+
+        driver.save_screenshot(full_file_path)
+        print(f"断言截图保存在{full_file_path}")
 
     def do_get_title(self):
         pass
