@@ -1,4 +1,5 @@
 import os
+from datetime import datetime
 
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
@@ -68,11 +69,13 @@ class BasePage(BilibiliLoginPageLocator):
         pass
 
     @staticmethod
-    def take_screenshot(driver, file_name, save_dir):
+    def take_screenshot(driver, save_dir, doc=""):
         if not os.path.exists(save_dir):
             os.makedirs(save_dir)
 
-        full_file_path = os.path.join(save_dir, file_name)
+        cur_time = datetime.strftime(datetime.now(), '%Y%m%d%H%M%S')
+        full_file_path = os.path.join(save_dir, "{}_{}.png".format(doc, cur_time))
+        # full_file_path = os.path.join(save_dir, file_name)
 
         driver.save_screenshot(full_file_path)
         print(f"断言截图保存在{full_file_path}")
