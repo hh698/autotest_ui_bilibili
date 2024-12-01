@@ -6,6 +6,8 @@ import threading
 
 import pytest
 
+from Utils import logger
+
 
 def run_tests():
     # 运行pytest测试
@@ -46,15 +48,17 @@ def run_tests():
         def target():
             try:
                 subprocess.run(command, shell=True, check=True)
-                logging.info(f"Command executed in thread: {command}")
+                # logger.logging.info(f"Command executed in thread: {command}")
             except subprocess.CalledProcessError as e:
-                logging.error(f"Command execution failed in thread: {command}")
-                logging.error(e.stderr.decode() if e.stderr else "")
+                pass
+                # logger.logging.error(f"Command execution failed in thread: {command}")
+                # logger.logging.error(e.stderr.decode() if e.stderr else "")
 
         thread = threading.Thread(target=target)
         thread.start()
-    allure_open_command = "allure open -h 127.0.0.1 -p 8883 Outputs/reports/allure_reports/html"
+    allure_open_command = "allure open -h 127.0.0.1 -p 8882 Outputs/reports/allure_reports/html"
     run_command_in_thread(allure_open_command)
+    logger.logging.info("Allure报告已打开！")
     print("Allure报告已打开！")
     # 没有加入tomcat进行监听，无法正确打开，目前只能用subprocess.run
     # report_path = os.path.join("Outputs/reports/allure_reports/html", "index.html")

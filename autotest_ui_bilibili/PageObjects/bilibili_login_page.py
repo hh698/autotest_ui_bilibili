@@ -17,6 +17,7 @@ import json
 import requests
 
 from TestCase.conftest import refresh_web
+from Utils import logger
 
 
 # class BilibiliLoginPage(BasePage):
@@ -93,6 +94,7 @@ class BilibiliLoginPage(BasePage, ReadLoginYaml):
             )
             self.driver.get_screenshot_as_file(
                 r'F:\GitHub\autotest_ui_bilibili\autotest_ui_bilibili\Outputs\reports\code_pic\browser.png')
+            logger.logging.info("验证码加载完毕，已截图")
             # self.driver.get_screenshot_as_file(
             #     'browser.png')
         except TimeoutException:

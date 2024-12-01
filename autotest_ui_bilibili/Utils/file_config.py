@@ -27,7 +27,7 @@ class FileConfig:
                 # Pytest报告路径
                 self.htmlreport_dir = os.path.join(self.base_dir, "Outputs\\pytest_report")
                 return self.htmlreport_dir
-            elif type == "logs":
+            elif type == "running_logs":
                 # Project运行日志路径
                 self.logs_dir = os.path.join(self.base_dir, "Outputs\\running_logs")
                 return self.logs_dir
@@ -40,7 +40,7 @@ class FileConfig:
                 return self.Outputs_dir
             else:
                 # 填写设备信息路径
-                self.message = "type选择范围：allure_report/pytest_report/logs/screenshots/Outputs"
+                self.message = "type选择范围：allure_report/pytest_report/running_logs/screenshots/Outputs"
                 return self.message
         else:
             # Mac OR Linux
@@ -52,7 +52,7 @@ class FileConfig:
                 # Pytest报告路径
                 self.htmlreport_dir = os.path.join(self.base_dir, "Outputs/pytest_report")
                 return self.htmlreport_dir
-            elif type == "logs":
+            elif type == "running_logs":
                 # Project运行日志路径
                 self.logs_dir = os.path.join(self.base_dir, "Outputs/running_logs")
                 return self.logs_dir
@@ -65,9 +65,9 @@ class FileConfig:
                 return self.Outputs_dir
             else:
                 # 填写设备信息路径
-                self.message = "type选择范围：allure_report/pytest_report/logs/screenshots/Outputs"
+                self.message = "type选择范围：allure_report/pytest_report/running_logs/screenshots/Outputs"
                 return self.message
 
 
 if __name__ == "__main__":
-    print(FileConfig().get_path(type="logs"))
+    print(FileConfig().get_path(type="running_logs"))

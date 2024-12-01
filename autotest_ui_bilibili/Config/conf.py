@@ -43,7 +43,7 @@ class ConfigManager(object):
     @property  # 创建只读属性
     def log_file(self):
         """日志目录"""
-        log_dir = os.path.join(self.BASE_DIR, 'logs')
+        log_dir = os.path.join(self.BASE_DIR, 'running_logs')
         if not os.path.exists(log_dir):
             os.makedirs(log_dir)
         return os.path.join(log_dir, '{}.log'.format(dt_strftime()))

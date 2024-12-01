@@ -1,3 +1,4 @@
+import logging
 import os
 from datetime import datetime
 
@@ -8,6 +9,7 @@ import time
 
 from Common.globaldriver import global_driver
 from PageLocators.bilibili_login_page_locator import BilibiliLoginPageLocator
+from Utils import logger
 
 
 class BasePage(BilibiliLoginPageLocator):
@@ -70,6 +72,8 @@ class BasePage(BilibiliLoginPageLocator):
 
     @staticmethod
     def take_screenshot(driver, save_dir, doc=""):
+        start_time = time.time()
+
         if not os.path.exists(save_dir):
             os.makedirs(save_dir)
 
@@ -78,6 +82,10 @@ class BasePage(BilibiliLoginPageLocator):
         # full_file_path = os.path.join(save_dir, file_name)
 
         driver.save_screenshot(full_file_path)
+
+        end_time = time.time()
+        duration = end_time - start_time
+        logger.logging.info("断言已截图，保存在{}，耗时{}".format(full_file_path, duration))
         print(f"断言截图保存在{full_file_path}")
 
     def do_get_title(self):
