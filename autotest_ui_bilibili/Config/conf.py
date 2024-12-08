@@ -5,7 +5,7 @@ import sys
 from selenium.webdriver.common.by import By
 
 sys.path.append((os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))))
-from utils.times import dt_strftime
+from Utils.times import dt_strftime
 
 
 class ConfigManager(object):
