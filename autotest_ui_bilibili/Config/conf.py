@@ -16,7 +16,7 @@ class ConfigManager(object):
     ELEMENT_PATH = os.path.join(BASE_DIR, 'PageLocators')
 
     # 报告文件
-    REPORT_FILE = os.path.join(BASE_DIR, 'report.html')
+    REPORT_FILE = os.path.join(BASE_DIR, r'Outputs\reports\allure_reports')
 
     # 元素定位的类型
     LOCATE_MODE = {
@@ -29,15 +29,15 @@ class ConfigManager(object):
 
     # 邮件信息
     EMAIL_INFO = {
-        'username': 'xxxxxxxx@qq.com',  # 切换成你自己的地址
-        'password': '开启smtp服务后的授权码',  # 开启smtp服务后的授权码,在qq邮箱-设置-账户中可以开启smtp服务并获取授权码
+        'username': '1277490394@qq.com',  # 切换成自己的地址
+        'password': 'yqboafzrwphugajf',  # 开启smtp服务后的授权码,在qq邮箱-设置-账户中可以开启smtp服务并获取授权码
         'smtp_host': 'smtp.qq.com',
         'smtp_port': 465
     }
 
     # 收件人
     ADDRESSEE = [
-        'xxxxxxxx@qq.com',
+        '2332343831@qq.com',
     ]
 
     @property  # 创建只读属性
@@ -58,5 +58,5 @@ class ConfigManager(object):
 
 
 cm = ConfigManager()
-# if __name__ == '__main__':
-#     print(cm.BASE_DIR)
+if __name__ == '__main__':
+    print(cm.REPORT_FILE)

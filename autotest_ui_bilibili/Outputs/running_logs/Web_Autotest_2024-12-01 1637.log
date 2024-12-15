@@ -1,6 +1,0 @@
- Sun, 01 Dec 2024 16:37:25  INFO bilibili_login_page.py pass_touclick [ line:97 ] 验证码加载完毕，已截图
- Sun, 01 Dec 2024 16:37:54  INFO basepage.py take_screenshot [ line:88 ] 断言已截图，保存在F:\GitHub\autotest_ui_bilibili\autotest_ui_bilibili\Outputs\assert_screenshots\login_page_20241201163754.png，耗时0.12753915786743164
- Sun, 01 Dec 2024 16:37:57  INFO bilibili_login_page.py pass_touclick [ line:97 ] 验证码加载完毕，已截图
- Sun, 01 Dec 2024 16:38:10  INFO basepage.py take_screenshot [ line:88 ] 断言已截图，保存在F:\GitHub\autotest_ui_bilibili\autotest_ui_bilibili\Outputs\assert_screenshots\login_page_error_20241201163810.png，耗时0.12880516052246094
- Sun, 01 Dec 2024 16:38:12  INFO run_case.py target [ line:53 ] Command execution failed in thread: allure open -h 127.0.0.1 -p 8883 Outputs/reports/allure_reports/html
- Sun, 01 Dec 2024 16:38:12  ERROR run_case.py target [ line:54 ] 

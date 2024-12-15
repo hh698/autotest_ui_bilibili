@@ -114,7 +114,8 @@ class BilibiliLoginPage(BasePage, ReadLoginYaml):
         # cropped_image = img.crop((862, 470, 1473, 1171))
         # 如果显示器的分辨率变了，此处的坐标也需要更改
         # cropped_image = img.crop((1067, 374, 1473, 892))  # 左、上、右、下 125%缩放
-        cropped_image = img.crop((1117, 442, 1443, 858))  # 左、上、右、下 100%缩放
+        # cropped_image = img.crop((1117, 442, 1443, 858))  # 左、上、右、下 100%缩放
+        cropped_image = img.crop((789, 261, 1115, 678))  # 左、上、右、下 原生笔记本缩放
         image_name = r'F:\GitHub\autotest_ui_bilibili\autotest_ui_bilibili\Outputs\reports\code_pic\image.png'
         # image_name = 'image.png'
         cropped_image.save(image_name)
@@ -134,8 +135,11 @@ class BilibiliLoginPage(BasePage, ReadLoginYaml):
                 # x_coord = int((int(result_order['X坐标值']) + (1067/1.25-15)))  # 814
                 # y_coord = int((int(result_order['Y坐标值']) + (374/1.25-20)))  # 235
                 # 100%缩放，用以下的坐标可以精准定位
-                x_coord = int((int(result_order['X坐标值']) + 1117))
-                y_coord = int((int(result_order['Y坐标值']) + 442))
+                # x_coord = int((int(result_order['X坐标值']) + 1117))
+                # y_coord = int((int(result_order['Y坐标值']) + 442))
+                # 原生笔记本适配
+                x_coord = int((int(result_order['X坐标值']) + 789))
+                y_coord = int((int(result_order['Y坐标值']) + 261))
                 print(x_coord, y_coord)
                 ActionChains(self.driver).move_by_offset(x_coord, y_coord).click().perform()
                 ActionChains(self.driver).move_by_offset(-x_coord, -y_coord).perform()

@@ -1,0 +1,8 @@
+{'code': 1, 'message': '', 'data': {'顺序1': {'X坐标值': 261, 'Y坐标值': 208}, '顺序2': {'X坐标值': 247, 'Y坐标值': 96}}}
+261 208
+1050 469
+247 96
+1036 357
+登录验证
+断言成功，页面标题正确！
+断言截图保存在F:\GitHub\autotest_ui_bilibili\autotest_ui_bilibili\Outputs\assert_screenshots\login_page_20241214155342.png
