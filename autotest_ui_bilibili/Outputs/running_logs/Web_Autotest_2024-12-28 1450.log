@@ -1,0 +1,2 @@
+ Sat, 28 Dec 2024 14:55:48  WARNING selenium_manager.py _process_logs [ line:135 ] Exception managing chrome: error decoding response body
+ Sat, 28 Dec 2024 14:55:53  INFO run_case.py run_tests [ line:61 ] Allure报告已打开！

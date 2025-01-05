@@ -48,3 +48,5 @@ except Exception as e:
     traceback.print_exc()
 
 #  可能是zmail库版本或者不兼容的问题
+
+# 优化空间：将整个报告打包成压缩包后进行邮件发送
