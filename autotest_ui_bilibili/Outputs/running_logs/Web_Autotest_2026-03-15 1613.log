@@ -1,0 +1,5 @@
+ Sun, 15 Mar 2026 16:13:22  INFO bilibili_login_page.py pass_touclick [ line:97 ] 验证码加载完毕，已截图
+ Sun, 15 Mar 2026 16:13:38  INFO basepage.py take_screenshot [ line:88 ] 断言已截图，保存在F:\GitHub\autotest_ui_bilibili\autotest_ui_bilibili\Outputs\assert_screenshots\login_page_error_20260315161338.png，耗时0.0628664493560791
+ Sun, 15 Mar 2026 16:13:40  INFO bilibili_login_page.py pass_touclick [ line:97 ] 验证码加载完毕，已截图
+ Sun, 15 Mar 2026 16:13:50  INFO basepage.py take_screenshot [ line:88 ] 断言已截图，保存在F:\GitHub\autotest_ui_bilibili\autotest_ui_bilibili\Outputs\assert_screenshots\login_page_error_20260315161350.png，耗时0.06795048713684082
+ Sun, 15 Mar 2026 16:13:52  INFO run_case.py run_tests [ line:63 ] Allure报告已打开！

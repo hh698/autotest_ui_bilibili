@@ -18,6 +18,7 @@ class TestChannel:
     @pytest.mark.smoke
     @allure.severity(severity_level="[normal]")
     @allure.story("正向登录测试，账号密码均正确")
+    @allure.link("测试用例：", "http://www.baidu.com")
     def test_bilibili_login1(self, access_web):
         # screenshot_dir = "../Outputs/assert_screenshots"  # 使用run_case.py脚本执行，识别不到相对路径
         with allure.step("步骤1：登录"):
@@ -103,3 +104,26 @@ class TestChannel:
 # pytest.main(
 #     [["-s", "-v", "-m", "sj", "--html=Outputs/report/pytest.html", "--alluredir=Outputs/reports/allure-results"],
 #      "test_login.py"])
+
+
+"""
+测试用例合并成一个登录用例的思路
+使用数据驱动，不同的用户名和密码作为一个组被用例调用
+
+import pytest
+import yaml
+
+# 读取YAML测试数据
+def load_test_data():
+    with open("users.yml", encoding="utf-8") as f:
+        data = yaml.safe_load(f)
+    return data["users"]
+
+# 参数化测试用例
+@pytest.mark.parametrize("phone, password", load_test_data())
+def test_login(phone, password):
+    # 模拟登录逻辑
+    print(f"正在尝试登录：手机号={phone}, 密码={password}")
+    # assert login(phone, password) == True
+
+"""

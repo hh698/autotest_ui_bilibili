@@ -4,6 +4,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 
 
+# 浏览器单例模式，减少重复创建和销毁浏览器的开销
 class GlobalDriver:
     def __init__(self):
         self.driver = None

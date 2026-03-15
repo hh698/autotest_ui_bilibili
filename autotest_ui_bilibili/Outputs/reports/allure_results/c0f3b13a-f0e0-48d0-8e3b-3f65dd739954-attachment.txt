@@ -1,8 +1,0 @@
-{'code': 1, 'message': '', 'data': {'顺序1': {'X坐标值': 46, 'Y坐标值': 177}, '顺序2': {'X坐标值': 50, 'Y坐标值': 268}}}
-46 177
-835 438
-50 268
-839 529
-账号登录
-断言失败，页面标题错误！
-断言截图保存在F:\GitHub\autotest_ui_bilibili\autotest_ui_bilibili\Outputs\assert_screenshots\login_page_error_20241228150243.png

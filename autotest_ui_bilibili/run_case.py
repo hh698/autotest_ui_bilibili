@@ -19,6 +19,8 @@ def run_tests():
     # try:
     #     subprocess.run(pytest_cmd, shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     #     print("测试成功！")
+
+
     # except subprocess.CalledProcessError as e:
     #     print("测试失败，错误信息：")
     #     print(e.stderr.decode('utf-8'))

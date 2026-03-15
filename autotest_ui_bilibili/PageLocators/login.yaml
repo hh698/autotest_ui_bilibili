@@ -1,11 +1,24 @@
 phone_number: 15671392055
-phone_password: hfq990921
+phone_password: Hfq990921@
 
 phone_number_2: 15671392056
-phone_password_2: hfq990921
+phone_password_2: Hfq990921@
 
 phone_number_3: 15671392055
-phone_password_3: hfq990922
+phone_password_3: Hfq990922@
 
 phone_number_4: 15671392056
-phone_password_4: hfq990922
+phone_password_4: Hfq990922@
+
+
+# 简化的方法，数据驱动
+# 四条用例合并成一个登录用例，传入四组不同的用户名和密码
+# 四组用户名和密码组合起来
+# pytest的参数化parametrize多参数传入两个参数
+
+# 简要解释报错原因： YAML中混用了数据类型，手机号写为了纯数字（被识别为number），而密码是字符串（string），导致类型不一致。
+users:
+  - [ "15671392055", "Hfq990921@" ]
+  - [ "15671392056", "Hfq990921@" ]
+  - [ "15671392055", "Hfq990922@" ]
+  - [ "15671392056", "Hfq990922@" ]

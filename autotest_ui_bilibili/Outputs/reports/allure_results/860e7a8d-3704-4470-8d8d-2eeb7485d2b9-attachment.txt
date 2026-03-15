@@ -1,0 +1,10 @@
+{'code': 1, 'message': '', 'data': {'顺序1': {'X坐标值': 175, 'Y坐标值': 283}, '顺序2': {'X坐标值': 94, 'Y坐标值': 277}, '顺序3': {'X坐标值': 219, 'Y坐标值': 144}}}
+175 283
+964 544
+94 277
+883 538
+219 144
+1008 405
+登录验证
+断言成功，页面标题正确！
+断言截图保存在F:\GitHub\autotest_ui_bilibili\autotest_ui_bilibili\Outputs\assert_screenshots\login_page_20260315162159.png
